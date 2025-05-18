@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { NavigationEnd, Router, RouterModule } from '@angular/router';
 import { filter, Subscription } from 'rxjs';
 import { AppTopbar } from './topbar/app.topbar';
-import { AppFooter } from './app.footer';
+import { AppFooter } from './footer/app.footer';
 import { LayoutService } from '../service/layout.service';
 
 @Component({

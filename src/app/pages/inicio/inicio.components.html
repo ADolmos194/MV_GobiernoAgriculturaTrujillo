@@ -1,45 +1,91 @@
-<!-- HERO -->
-<section class="bg-white min-h-screen flex flex-col justify-center items-center text-center px-6 py-20">
-    <h1 class="text-4xl md:text-5xl font-bold text-green-800 mb-4">Gobierno de Agricultura de TRUJILLO </h1>
-    <p class="text-lg md:text-xl text-gray-700 max-w-2xl">
-        Impulsamos el futuro del campo con soluciones agrícolas sostenibles y conexión directa entre productores y
-        compradores.
-    </p>
-    <div class="mt-6 flex gap-4">
-        <a href="/oferta" class="bg-green-700 text-white px-6 py-2 rounded-full hover:bg-green-800 transition">Ver
-            Oferta</a>
-        <p-divider layout="vertical"/>
-        <a href="/demanda" class="bg-green-700 text-white px-6 py-2 rounded-full hover:bg-green-800 transition">Ver
-            Demanda</a>
+<div class=" flex flex-col">
+    <!-- Header -->
+    <div class="h-1 bg-gradient-to-r from-green-600 to-sky-600 opacity-70"></div>
+    <header class="card py-20 px-6 md:px-20 flex flex-col md:flex-row items-center justify-between shadow-sm">
+        <div class="md:w-1/2 mb-12 md:mb-0">
+            <h1 class="text-4xl md:text-5xl font-semibold leading-tight tracking-tight mb-6">
+                Gobierno de Agricultura de <span class="text-green-700">Trujillo</span>
+            </h1>
+            <p class="text-lg md:text-xl leading-relaxed max-w-xl opacity-80">
+                Impulsamos el futuro del campo con soluciones agrícolas sostenibles y conexión directa entre productores
+                y compradores, fomentando el crecimiento y la innovación.
+            </p>
+        </div>
+        <div class="md:w-1/2 relative">
+            <img src="https://mundohusqvarna.com.pe/wp-content/uploads/2023/02/La-mecanizacion-de-la-agricultura-beneficia-a-los-pequenos-y-medianos-productores-scaled.jpg"
+                alt="Imagen de agricultura" class="rounded-2xl shadow-lg object-cover w-full h-auto opacity-80" />
+            <div
+                class="absolute inset-0 bg-gradient-to-br from-green-600 to-sky-600 opacity-10 rounded-2xl mix-blend-multiply">
+            </div>
+        </div>
+    </header>
+
+    <!-- Sección de tarjetas -->
+    <section class="md:px-20 grid gap-12 md:grid-cols-2 lg:grid-cols-4 items-stretch">
+    <!-- CARD COMPONENT -->
+    <div class="card h-full flex flex-col items-center text-center p-8 rounded-2xl shadow-2xl hover:shadow-[0_0_30px_rgba(0,0,0,0.1)] transition">
+        <div class="mb-6">
+            <svg class="w-12 h-12 text-green-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+        </div>
+        <h2 class="text-2xl font-semibold mb-4">Ofertas Agrícolas</h2>
+        <p class="text-gray-600 mb-6 max-w-xs flex-1">
+            Explore productos agrícolas frescos y de alta calidad directamente desde productores locales.
+        </p>
+        <p-button (click)="irAOferta()" aria-label="Ver servicios de maquinaria" severity="success" class="inline-block transition font-medium">
+            Ver Ofertas
+        </p-button>
+    </div>
+
+    <!-- CARD COMPONENT -->
+    <div class="card h-full flex flex-col items-center text-center p-8 rounded-2xl shadow-2xl hover:shadow-[0_0_30px_rgba(0,0,0,0.1)] transition">
+        <div class="mb-6">
+            <svg class="w-12 h-12 text-sky-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+        </div>
+        <h2 class="text-2xl font-semibold mb-4">Demandas Agrícolas</h2>
+        <p class="text-gray-600 mb-6 max-w-xs flex-1">
+            Conecte con compradores interesados en sus productos y genere relaciones comerciales sólidas.
+        </p>
+        <p-button (click)="irADemanda()" aria-label="Ver servicios de maquinaria" severity="info" class="inline-block transition font-medium">
+            Ver Demandas
+        </p-button>
+    </div>
+
+    <!-- CARD COMPONENT -->
+    <div class="card h-full flex flex-col items-center text-center p-8 rounded-2xl shadow-2xl hover:shadow-[0_0_30px_rgba(0,0,0,0.1)] transition">
+        <div class="mb-6">
+            <svg class="w-12 h-12 text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4m0 0l2-2m-2 2l-2-2m2 2L9 9" />
+            </svg>
+        </div>
+        <h2 class="text-2xl font-semibold mb-4">Trabajos Agrícolas</h2>
+        <p class="text-gray-600 mb-6 max-w-xs flex-1">
+            Encuentre oportunidades laborales en el campo o publique sus propias ofertas de empleo.
+        </p>
+        <p-button (click)="irAEmpleos()" aria-label="Ver servicios de maquinaria" severity="contrast" class="inline-block transition font-medium">
+            Ver Empleos
+        </p-button>
+    </div>
+
+    <!-- CARD COMPONENT -->
+    <div class="card h-full flex flex-col items-center text-center p-8 rounded-2xl shadow-2xl hover:shadow-[0_0_30px_rgba(0,0,0,0.1)] transition">
+        <div class="mb-6">
+            <svg class="w-12 h-12 text-yellow-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" />
+            </svg>
+        </div>
+        <h2 class="text-2xl font-semibold mb-4">Servicios de Maquinaria</h2>
+        <p class="text-gray-600 mb-6 max-w-xs flex-1">
+            Ofrezca o solicite servicios de maquinaria para mejorar la productividad agrícola.
+        </p>
+        <p-button (click)="irAServicios()" aria-label="Ver servicios de maquinaria" severity="warn" class="inline-block transition font-medium">
+            Ver Servicios
+        </p-button>
     </div>
 </section>
 
-<!-- PUBLICIDAD / MENSAJE DESTACADO -->
-<section class="bg-green-50 py-16 px-6 text-center">
-    <h2 class="text-3xl font-semibold text-green-900 mb-4">Conectamos el campo con la ciudad</h2>
-    <p class="text-gray-600 max-w-3xl mx-auto">
-        Nuestro portal facilita la venta directa de productos agrícolas, eliminando intermediarios y asegurando precios
-        justos para productores y consumidores.
-    </p>
-</section>
 
-<!-- QUIÉNES SOMOS -->
-<section id="quienes-somos" class="py-20 px-6 bg-white text-center">
-    <h2 class="text-3xl font-semibold text-green-800 mb-6">¿Quiénes Somos?</h2>
-    <p class="text-gray-700 max-w-3xl mx-auto text-lg leading-relaxed">
-        Gobierno de Agricultura de TRUJILLO es una iniciativa dedicada a fortalecer el sector agrícola nacional mediante tecnología, capacitación
-        y canales de distribución justos.
-        Trabajamos con productores locales, cooperativas y asociaciones rurales para promover una agricultura más
-        rentable, sostenible y digna.
-    </p>
-</section>
-
-<!-- CONTACTO -->
-<section id="contacto" class="bg-green-700 text-white py-20 px-6 text-center">
-    <h2 class="text-3xl font-semibold mb-4">¿Quieres saber más?</h2>
-    <p class="mb-6 text-lg">Escríbenos o agenda una llamada con nuestro equipo de atención al productor.</p>
-    <a href="mailto:contacto@agrofuturo.com"
-        class="bg-white text-green-700 px-6 py-3 rounded-full font-medium hover:bg-gray-100 transition">
-        ejemplo_email.com
-    </a>
-</section>
+</div>

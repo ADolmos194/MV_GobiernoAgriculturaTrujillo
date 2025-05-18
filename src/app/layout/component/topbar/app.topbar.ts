@@ -85,17 +85,8 @@ export class AppTopbar implements OnInit {
             { label: 'Inicio', icon: 'pi pi-fw pi-home', routerLink: ['/'] },
             { label: 'Oferta', icon: 'pi pi-fw pi-upload', routerLink: ['/oferta'] },
             { label: 'Demanda', icon: 'pi pi-fw pi-download', routerLink: ['/demanda'] },
-            {
-                label: 'Empleos', icon: 'pi pi-fw pi-briefcase',
-                items: [
-                    { label: 'Cosechas', icon: 'pi pi-fw pi-list' },
-                    { label: 'Cultivos', icon: 'pi pi-fw pi-search' }
-                ]
-            },
-            {
-                label: 'Servicios', icon: 'pi pi-fw pi-cog',
-                items: [{ label: 'Maquinaria', icon: 'pi pi-fw pi-tools' }]
-            }
+            { label: 'Empleos', icon: 'pi pi-fw pi-briefcase', routerLink: ['/'] },
+            { label: 'Servicios', icon: 'pi pi-fw pi-cog', routerLink: ['/'] },
         ];
 
         this.userMenuItems = [
@@ -128,18 +119,9 @@ export class AppTopbar implements OnInit {
                     { label: 'Inicio', icon: 'pi pi-fw pi-home', routerLink: ['/'] },
                     { label: 'Oferta', icon: 'pi pi-fw pi-upload', routerLink: ['/oferta'] },
                     { label: 'Demanda', icon: 'pi pi-fw pi-download', routerLink: ['/demanda'] },
+                    { label: 'Empleos', icon: 'pi pi-fw pi-briefcase', routerLink: ['/'] },
+                    { label: 'Servicios', icon: 'pi pi-fw pi-cog', routerLink: ['/'] },
                 ]
-            },
-            {
-                label: 'Empleos',
-                items: [
-                    { label: 'Cosechas', icon: 'pi pi-fw pi-list' },
-                    { label: 'Cultivos', icon: 'pi pi-fw pi-search' },
-                ]
-            },
-            {
-                label: 'Servicios', icon: 'pi pi-fw pi-cog',
-                items: [{ label: 'Maquinaria', icon: 'pi pi-fw pi-tools' }]
             },
             {
                 label: 'Cuenta', icon: 'pi pi-fw pi-user',
