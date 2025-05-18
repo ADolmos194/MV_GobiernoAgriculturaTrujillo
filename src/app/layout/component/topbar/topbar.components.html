@@ -1,0 +1,48 @@
+<app-configurator />
+<div class="layout-topbar flex items-center justify-between p-2 gap-4 w-full">
+
+    <!-- Logo o título siempre a la izquierda -->
+    <a routerLink="/" class="font-bold text-lg whitespace-nowrap no-underline text-inherit">
+        GOBPE AGRICULTURA DE TRUJILLO
+    </a>
+
+    <!-- Menús para escritorio -->
+    <ng-container *ngIf="!isMobileView" class="flex flex-grow items-center gap-4 justify-end">
+        <p-menubar [model]="mainMenuItems" class="no-bg flex-grow min-w-0"></p-menubar>
+        <p-menubar [model]="userMenuItems" class="no-bg flex-shrink-0">
+            <ng-template #end>
+                <div class="flex flex-wrap gap-4 justify-center">
+                    <p-button label="Iniciar sesión" />
+                    <p-button label="Crear cuenta" severity="success" />
+                </div>
+            </ng-template>
+        </p-menubar>
+
+    </ng-container>
+
+    <!-- Menú móvil: botón alineado a la derecha -->
+    <ng-container *ngIf="isMobileView">
+        <div class="ml-auto">
+            <p-menu #menu [model]="MenuMovil" [popup]="true" />
+            <p-button (click)="menu.toggle($event)" icon="pi pi-ellipsis-v" />
+        </div>
+    </ng-container>
+
+</div>
+
+
+<style>
+    .no-bg ::ng-deep .p-menubar {
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+    }
+
+    .no-bg ::ng-deep .p-menubar-root-list {
+        background: transparent !important;
+    }
+
+    .no-bg ::ng-deep .p-menuitem-link {
+        color: inherit !important;
+    }
+</style>
