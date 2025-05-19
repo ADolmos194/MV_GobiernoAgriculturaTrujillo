@@ -6,7 +6,7 @@ import { AppMenu } from './app.menu';
     standalone: true,
     imports: [AppMenu],
     template: ` <div class="layout-sidebar">
-        <app-menu></app-menu>
+        Hola
     </div>`
 })
 export class AppSidebar {

@@ -1,55 +1,105 @@
-<div class="card grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-8">
-    <!-- Anuncio 1: Venta de maíz -->
-    <p-card [style]="{ width: '100%', overflow: 'hidden' }">
-        <ng-template #header>
-            <img alt="Venta de maíz" class="w-full h-48 object-cover" src="https://previews.123rf.com/images/siwasasil/siwasasil1203/siwasasil120300110/12965418-ma%C3%ADz-amarillo-seco.jpg" />
-        </ng-template>
-        <ng-template #title> Maíz Amarillo Grano Seco </ng-template>
-        <ng-template #subtitle> Cosecha reciente, listo para distribución </ng-template>
-        <p>
-            Maíz de alta calidad, secado naturalmente, ideal para consumo animal o procesamiento. Entrega disponible en regiones agrícolas principales.
-        </p>
-        <p class="text-sm text-gray-600 mt-2">Contacto: Juan Pérez </p>
-        <ng-template #footer>
-            <div class="flex gap-4 mt-2">
-                <p-button label="Contactar" class="w-full" icon="pi pi-phone" />
-            </div>
-        </ng-template>
-    </p-card>
+<div class="flex flex-col md:flex-row">
+    <!-- Panel izquierdo -->
+    <div class="md:w-1/5 w-full p-4">
+        <p-menu [model]="items" styleClass="w-full">
+            <ng-template #start>
+                <div class="flex justify-center">
+                    <span class="inline-flex justify-center items-center gap-1 px-2 py-2">
+                        <span class="text-xl font-semibold">CATEGORÍAS</span>
+                    </span>
+                </div>
+            </ng-template>
 
-    <!-- Anuncio 2: Alfalfa -->
-    <p-card [style]="{ width: '100%', overflow: 'hidden' }">
-        <ng-template #header>
-            <img alt="Venta de alfalfa" class="w-full h-48 object-cover" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiVimXawnSp4Xrg1ToBA0LzkVi46JgxkrMkA&s" />
-        </ng-template>
-        <ng-template #title> Alfalfa Deshidratada en Pacas </ng-template>
-        <ng-template #subtitle> Alto contenido nutricional </ng-template>
-        <p>
-            Pacas compactas de alfalfa, ideal para ganado. Cultivo sin pesticidas, secado al sol para conservar nutrientes esenciales.
-        </p>
-        <p class="text-sm text-gray-600 mt-2">Contacto: María López</p>
-        <ng-template #footer>
-            <div class="flex gap-4 mt-2">
-                <p-button label="Enviar mensaje" class="w-full" icon="pi pi-envelope" />
-            </div>
-        </ng-template>
-    </p-card>
+            <ng-template #submenuheader let-item>
+                <span class="text-primary font-bold">{{ item.label }}</span>
+            </ng-template>
 
-    <!-- Anuncio 3: Semillas de jitomate -->
-    <p-card [style]="{ width: '100%', overflow: 'hidden' }">
-        <ng-template #header>
-            <img alt="Semillas de jitomate" class="w-full h-48 object-cover" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxevZHHgCCdXcJ5dd0_k_XIzLiMkgUL99hnw&s" />
-        </ng-template>
-        <ng-template #title> Semillas de Jitomate Criollo </ng-template>
-        <ng-template #subtitle> Variedad resistente y alto rendimiento </ng-template>
-        <p>
-            Semillas seleccionadas para cultivo orgánico. Excelente germinación y adaptación al clima cálido. Ideal para pequeños productores.
-        </p>
-        <p class="text-sm text-gray-600 mt-2">Contacto: Agro Semillas </p>
-        <ng-template #footer>
-            <div class="flex gap-4 mt-2">
-                <p-button label="Llamar ahora" class="w-full" icon="pi pi-phone" />
-            </div>
-        </ng-template>
-    </p-card>
+            <ng-template #item let-item>
+                <a pRipple class="flex items-center p-menu-item-link">
+                    <span [class]="item.icon"></span>
+                    <span class="ml-2">{{ item.label }}</span>
+                    <p-badge *ngIf="item.badge" class="ml-auto" [value]="item.badge" />
+                    <span *ngIf="item.shortcut"
+                        class="ml-auto border border-surface rounded bg-emphasis text-muted-color text-xs p-1">
+                        {{ item.shortcut }}
+                    </span>
+                </a>
+            </ng-template>
+        </p-menu>
+    </div>
+
+    <div class="card md:w-4/5 w-full p-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
+        <!-- Anuncio 1 -->
+        <p-card class="h-full flex flex-col" [style]="{ overflow: 'hidden' }">
+            <ng-template #header>
+                <img alt="Venta de maíz" class="w-full h-48 object-cover"
+                    src="https://previews.123rf.com/images/siwasasil/siwasasil1203/siwasasil120300110/12965418-ma%C3%ADz-amarillo-seco.jpg" />
+            </ng-template>
+            <ng-template #title> Maíz Amarillo Grano Seco </ng-template>
+            <ng-template #subtitle> Cosecha reciente, listo para distribución </ng-template>
+            <p class="flex-grow">
+                Maíz de alta calidad, secado naturalmente, ideal para consumo animal o procesamiento.
+            </p>
+            <p class="text-sm text-gray-600 mt-2">Contacto: Juan Pérez</p>
+            <ng-template #footer>
+                <div class="flex gap-4 mt-2">
+                    <p-button label="Contactar" class="w-full" icon="pi pi-phone" />
+                </div>
+            </ng-template>
+        </p-card>
+
+        <!-- Anuncio 3 -->
+        <p-card class="h-full flex flex-col" [style]="{ overflow: 'hidden' }">
+            <ng-template #header>
+                <img alt="Semillas de jitomate" class="w-full h-48 object-cover"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxevZHHgCCdXcJ5dd0_k_XIzLiMkgUL99hnw&s" />
+            </ng-template>
+            <ng-template #title> Semillas de Jitomate Criollo </ng-template>
+            <ng-template #subtitle> Variedad resistente y alto rendimiento </ng-template>
+            <p class="flex-grow">
+                Semillas seleccionadas para cultivo orgánico. Excelente germinación y adaptación al clima cálido.
+            </p>
+            <p class="text-sm text-gray-600 mt-2">Contacto: Agro Semillas</p>
+            <ng-template #footer>
+                <div class="flex gap-4 mt-2">
+                    <p-button label="Llamar ahora" class="w-full" icon="pi pi-phone" />
+                </div>
+            </ng-template>
+        </p-card>
+
+        <p-card class="h-full flex flex-col" [style]="{ overflow: 'hidden' }">
+            <ng-template #header>
+                <img alt="Semillas de jitomate" class="w-full h-48 object-cover"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxevZHHgCCdXcJ5dd0_k_XIzLiMkgUL99hnw&s" />
+            </ng-template>
+            <ng-template #title> Semillas de Jitomate Criollo </ng-template>
+            <ng-template #subtitle> Variedad resistente y alto rendimiento </ng-template>
+            <p class="flex-grow">
+                Semillas seleccionadas para cultivo orgánico. Excelente germinación y adaptación al clima cálido.
+            </p>
+            <p class="text-sm text-gray-600 mt-2">Contacto: Agro Semillas</p>
+            <ng-template #footer>
+                <div class="flex gap-4 mt-2">
+                    <p-button label="Llamar ahora" class="w-full" icon="pi pi-phone" />
+                </div>
+            </ng-template>
+        </p-card>
+        <p-card class="h-full flex flex-col" [style]="{ overflow: 'hidden' }">
+            <ng-template #header>
+                <img alt="Semillas de jitomate" class="w-full h-48 object-cover"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxevZHHgCCdXcJ5dd0_k_XIzLiMkgUL99hnw&s" />
+            </ng-template>
+            <ng-template #title> Semillas de Jitomate Criollo </ng-template>
+            <ng-template #subtitle> Variedad resistente y alto rendimiento </ng-template>
+            <p class="flex-grow">
+                Semillas seleccionadas para cultivo orgánico. Excelente germinación y adaptación al clima cálido.
+            </p>
+            <p class="text-sm text-gray-600 mt-2">Contacto: Agro Semillas</p>
+            <ng-template #footer>
+                <div class="flex gap-4 mt-2">
+                    <p-button label="Llamar ahora" class="w-full" icon="pi pi-phone" />
+                </div>
+            </ng-template>
+        </p-card>
+    </div>
 </div>
