@@ -83,8 +83,13 @@ export class AppTopbar implements OnInit {
     EscritorioMenuItems() {
         this.mainMenuItems = [
             { label: 'Inicio', icon: 'pi pi-fw pi-home', routerLink: ['/'] },
-            { label: 'Oferta', icon: 'pi pi-fw pi-upload', routerLink: ['/oferta'] },
-            { label: 'Demanda', icon: 'pi pi-fw pi-download', routerLink: ['/demanda'] },
+            {
+                label: 'Anuncios', icon: 'pi pi-fw pi-user',
+                items: [
+                    { label: 'Oferta', icon: 'pi pi-fw pi-id-card', routerLink: ['/anuncio/oferta'] },
+                    { label: 'Demanda', icon: 'pi pi-fw pi-cog', routerLink: ['/anuncio/demanda']  },
+                ]
+            },
             { label: 'Empleos', icon: 'pi pi-fw pi-briefcase', routerLink: ['/'] },
             { label: 'Servicios', icon: 'pi pi-fw pi-cog', routerLink: ['/'] },
         ];

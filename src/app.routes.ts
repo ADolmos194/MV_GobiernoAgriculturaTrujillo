@@ -15,14 +15,14 @@ export const appRoutes: Routes = [
         ]
     },
     {
-        path: 'oferta',
+        path: 'anuncio/oferta',
         component: AppLayout,
         children: [
             { path: '', component: Oferta },
         ]
     },
     {
-        path: 'demanda',
+        path: 'anuncio/demanda',
         component: AppLayout,
         children: [
             { path: '', component: Demanda },
