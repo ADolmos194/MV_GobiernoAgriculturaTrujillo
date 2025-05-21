@@ -82,16 +82,27 @@ export class AppTopbar implements OnInit {
 
     EscritorioMenuItems() {
         this.mainMenuItems = [
-            { label: 'Inicio', icon: 'pi pi-fw pi-home', routerLink: ['/'] },
+            { label: 'Gerencia Regional de Agricultura', icon: 'pi pi-fw pi-home', routerLink: ['/'] },
             {
                 label: 'Anuncios', icon: 'pi pi-fw pi-user',
                 items: [
                     { label: 'Oferta', icon: 'pi pi-fw pi-id-card', routerLink: ['/anuncio/oferta'] },
-                    { label: 'Demanda', icon: 'pi pi-fw pi-cog', routerLink: ['/anuncio/demanda']  },
+                    { label: 'Demanda', icon: 'pi pi-fw pi-cog', routerLink: ['/anuncio/demanda'] },
                 ]
             },
-            { label: 'Empleos', icon: 'pi pi-fw pi-briefcase', routerLink: ['/'] },
-            { label: 'Servicios', icon: 'pi pi-fw pi-cog', routerLink: ['/'] },
+            {
+                label: 'Empleos', icon: 'pi pi-fw pi-briefcase',
+                items: [
+                    { label: 'Cosechas', icon: 'pi pi-fw pi-id-card', routerLink: ['/empleos/cosechas'] },
+                    { label: 'Cultivos', icon: 'pi pi-fw pi-cog', routerLink: ['/empleos/cultivos'] },
+                ]
+            },
+            {
+                label: 'Servicios', icon: 'pi pi-fw pi-cog',
+                items: [
+                    { label: 'Maquinarias', icon: 'pi pi-fw pi-id-card', routerLink: ['/servicios/maquinarias'] },
+                ]
+            },
         ];
 
         this.userMenuItems = [
@@ -100,19 +111,11 @@ export class AppTopbar implements OnInit {
                 icon: this.layoutService.isDarkTheme() ? 'pi pi-sun' : 'pi pi-moon',
                 command: () => this.toggleDarkMode()
             },
-            {
-                label: 'Nombre de Usuario'
-            },
-            {
-                label: 'Cuenta', icon: 'pi pi-fw pi-user',
-                items: [
-                    { label: 'Perfil', icon: 'pi pi-fw pi-id-card' },
-                    { label: 'Ajustes', icon: 'pi pi-fw pi-cog' },
-                    { label: 'Cerrar sesión', icon: 'pi pi-fw pi-sign-out' }
-                ]
-            },
         ];
     }
+
+    usuarioMostrado: boolean = false;
+    usuario: any = {}; // Agregá esto
 
     MenuMovil: MenuItem[] = [];
 
@@ -128,20 +131,7 @@ export class AppTopbar implements OnInit {
                     { label: 'Servicios', icon: 'pi pi-fw pi-cog', routerLink: ['/'] },
                 ]
             },
-            {
-                label: 'Cuenta', icon: 'pi pi-fw pi-user',
-                items: [
-                    { label: 'Nombre de Usuario', icon: 'pi pi-fw pi-id-card' },
-                    { label: 'Perfil', icon: 'pi pi-fw pi-id-card' },
-                    { label: 'Ajustes', icon: 'pi pi-fw pi-cog' },
-                    {
-                        label: this.layoutService.isDarkTheme() ? 'Modo claro' : 'Modo oscuro',
-                        icon: this.layoutService.isDarkTheme() ? 'pi pi-sun' : 'pi pi-moon',
-                        command: () => this.toggleDarkMode()
-                    },
-                    { label: 'Cerrar sesión', icon: 'pi pi-fw pi-sign-out' }
-                ]
-            }
         ];
     }
+
 }
